@@ -1,0 +1,14 @@
+name: mirror
+
+on:
+  workflow_dispatch:
+    inputs:
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    steps:
+      - name: placeholder
+        run: |
+            echo "### New Version" >> $GITHUB_STEP_SUMMARY
+            echo placeholder >> $GITHUB_STEP_SUMMARY
