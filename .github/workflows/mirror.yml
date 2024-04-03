@@ -3,6 +3,9 @@ name: mirror
 on:
   workflow_dispatch:
     inputs:
+      name:
+        description: Full image name (tag included)
+        required: true
 
 jobs:
   mirror:
