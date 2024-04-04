@@ -58,10 +58,10 @@ jobs:
           # tags: |
           #  ghcr.io/fopinappb/dockerhub-mirror/alpine:3.19
           tags: |
-            ghcr.io/fopinappb/dockerhub-mirror:${{ steps.prepare-remote.outputs.remote }}-${{ steps.prepare-remote.outputs.tag }}
+            ghcr.io/${{ github.repository }}:${{ steps.prepare-remote.outputs.remote }}-${{ steps.prepare-remote.outputs.tag }}
           platforms: linux/amd64,linux/arm64,linux/arm/v7
 
       - name: summary
         run: |
             echo "### ${{ steps.prepare-remote.outputs.remote }}" >> $GITHUB_STEP_SUMMARY
-            echo '`${{ github.event.inputs.name }}` mirrored to `ghcr.io/fopinappb/dockerhub-mirror:${{ steps.prepare-remote.outputs.remote }}-${{ steps.prepare-remote.outputs.tag }}`' >> $GITHUB_STEP_SUMMARY
+            echo '`${{ github.event.inputs.name }}` mirrored to `ghcr.io/${{ github.repository }}:${{ steps.prepare-remote.outputs.remote }}-${{ steps.prepare-remote.outputs.tag }}`' >> $GITHUB_STEP_SUMMARY
