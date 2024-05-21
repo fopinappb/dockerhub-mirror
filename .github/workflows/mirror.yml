@@ -6,6 +6,9 @@ on:
       name:
         description: Full image name (tag included)
         required: true
+      platforms:
+        description: Platforms to include
+        default: 'linux/amd64,linux/arm64,linux/arm/v7'
 
 permissions:
   contents: read
@@ -59,7 +62,7 @@ jobs:
           #  ghcr.io/fopinappb/dockerhub-mirror/alpine:3.19
           tags: |
             ghcr.io/${{ github.repository }}:${{ steps.prepare-remote.outputs.remote }}-${{ steps.prepare-remote.outputs.tag }}
-          platforms: linux/amd64,linux/arm64,linux/arm/v7
+          platforms: ${{ github.event.inputs.platforms }}
 
       - name: summary
         run: |
