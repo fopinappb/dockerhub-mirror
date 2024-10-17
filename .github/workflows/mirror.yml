@@ -14,6 +14,8 @@ permissions:
   contents: read
   packages: write
 
+run-name: mirror ${{ github.event.inputs.name }}
+
 jobs:
   mirror:
     runs-on: ubuntu-latest
